@@ -1,0 +1,57 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+echo '🏗️👷 Styling, testing and building your project before committing'
+
+# Check Prettier standards
+npm run format ||
+(
+    echo '🤢🤮🤢🤮 Uh Oh - Your styling looks disgusting. 🤢🤮🤢🤮
+            Prettier Check Failed. Run npm run prettier:fix, add changes and try commit again.';
+
+            # Allows us to read user input below, assigns stdin to keyboard
+            exec < /dev/tty
+
+            while true; do
+              read -p "[post-commit hook] Check for outdated gems? (Y/n) " yn
+              if [ "$yn" = "" ]; then
+                yn='Y'
+              fi
+              case $yn in
+                  [Yy] ) npm run format:fix;;
+                  [Nn] ) exit;;
+                  * ) echo "Please answer y or n for yes or no.";;
+              esac
+            done
+)
+
+# Check ESLint Standards
+npm run lint ||
+(
+        echo '😤🏀👋😤 Get that weak sauce out of here! 😤🏀👋😤
+                ESLint Check Failed. Make the required changes listed above, add changes and try to commit again.'
+        false;
+)
+
+# Check tsconfig standards
+#npm run check-types ||
+#(
+#    echo '🤡😂❌🤡 Failed Type check. 🤡😂❌🤡
+#            Are you seriously trying to write that? Make the changes required above.'
+#    false;
+#)
+
+# If everything passes... Now we can commit
+echo '🤔🤔🤔🤔... Alright... Code looks good to me... Trying to build now. 🤔🤔🤔🤔'
+
+npm run build ||
+(
+    echo '❌👷🔨❌ Better call Bob... Because your build failed ❌👷🔨❌
+            Next build failed: View the errors above to see why.
+    '
+    false;
+)
+
+# If everything passes... Now we can commit
+echo '✅✅✅✅ You win this time... I am committing this now. ✅✅✅✅'
+
+#npm pre-commit
