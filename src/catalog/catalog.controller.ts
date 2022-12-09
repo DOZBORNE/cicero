@@ -11,8 +11,8 @@ export class CatalogController {
     return this.catalogService.updateModifierStatus(id, updateModifierDto)
   }
 
-  @Post()
-  async createOne(@Body() body: any) {
-    return this.catalogService.createOne(body)
-  }
+  // @Post()
+  // async createOne(@Body() body: any) {
+  //   return this.catalogService.createOne(body)
+  // }
 }

@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common'
 import { UpdateModifierDto } from '@catalog/dto'
 import { SquareCatalogService } from '@square/catalog/square-catalog.service'
-import { InjectModel } from '@nestjs/mongoose'
-import { Catalog } from '@catalog/entities/catalog.entity'
-import { Model } from 'mongoose'
+// import { InjectModel } from '@nestjs/mongoose'
+// import { Catalog } from '@catalog/entities/catalog.entity'
+// import { Model } from 'mongoose'
 import { ApiResponse, BatchRetrieveCatalogObjectsResponse } from 'square'
 import { MODIFIER_IDS, MODIFIER_KEYS } from '@square/square.constants'
 import { nanoid } from 'nanoid'
@@ -13,14 +13,13 @@ import { SquareService } from '@square/square.service'
 export class CatalogService {
   constructor(
     private squareCatalogService: SquareCatalogService,
-    private square: SquareService,
-    @InjectModel(Catalog.name) private readonly catalogModel: Model<Catalog>,
+    private square: SquareService, // @InjectModel(Catalog.name) private readonly catalogModel: Model<Catalog>,
   ) {}
 
-  createOne(body: any) {
-    const created = new this.catalogModel(body)
-    return created.save()
-  }
+  // createOne(body: any) {
+  //   const created = new this.catalogModel(body)
+  //   return created.save()
+  // }
 
   async updateModifierStatus(id: number, updateModifierDto: UpdateModifierDto) {
     const modifierLists = await this.squareCatalogService.batchRetrieveCatalogObjects()
