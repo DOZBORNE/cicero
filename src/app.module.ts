@@ -8,7 +8,7 @@ import { ConfigModuleConfig } from './common/config'
 @Module({
   imports: [
     ConfigModule.forRoot(ConfigModuleConfig),
-    MongooseModule.forRoot(process.env.DB_URL),
+    // MongooseModule.forRoot(process.env.DB_URL),
     CatalogModule,
     SquareModule,
   ],
