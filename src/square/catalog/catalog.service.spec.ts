@@ -1,18 +1,18 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { SquareCatalogService } from './square-catalog.service';
+import { Test, TestingModule } from '@nestjs/testing'
+import { SquareCatalogService } from './square-catalog.service'
 
 describe('CatalogService', () => {
-  let service: SquareCatalogService;
+  let service: SquareCatalogService
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [SquareCatalogService],
-    }).compile();
+    }).compile()
 
-    service = module.get<SquareCatalogService>(SquareCatalogService);
-  });
+    service = module.get<SquareCatalogService>(SquareCatalogService)
+  })
 
   it('should be defined', () => {
-    expect(service).toBeDefined();
-  });
-});
+    expect(service).toBeDefined()
+  })
+})

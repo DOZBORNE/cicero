@@ -8,9 +8,7 @@ import { ConfigModuleConfig } from './common/config'
 @Module({
   imports: [
     ConfigModule.forRoot(ConfigModuleConfig),
-    MongooseModule.forRoot(
-      'mongodb+srv://devin:Devin3627!@cicero.tkg3u.mongodb.net/cicero-v2?retryWrites=true&w=majority',
-    ),
+    MongooseModule.forRoot(process.env.DB_URL),
     CatalogModule,
     SquareModule,
   ],

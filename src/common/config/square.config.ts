@@ -8,6 +8,7 @@ const { SQUARE_ENVIRONMENT, SQUARE_ACCESS_TOKEN } = process.env
 export const SquareConfig: RegisteredConfig<Partial<Configuration>> = registerAs(
   SQUARE_CONFIG_TOKEN,
   (): Partial<Configuration> => {
+    console.log(SQUARE_ENVIRONMENT, "ENV")
     return {
       environment:
         SQUARE_ENVIRONMENT.toUpperCase() === 'PRODUCTION'

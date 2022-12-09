@@ -3,7 +3,7 @@
 echo '🏗️👷 Styling, testing and building your project before committing'
 
 # Check Prettier standards
-npm run format ||
+npm run format:fix ||
 (
     echo '🤢🤮🤢🤮 Uh Oh - Your styling looks disgusting. 🤢🤮🤢🤮
             Prettier Check Failed. Run npm run prettier:fix, add changes and try commit again.';

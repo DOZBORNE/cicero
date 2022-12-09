@@ -1,0 +1,13 @@
+version: '3.9'
+
+services:
+  mongo:
+    image: mongo
+    restart: always
+    container_name: cicero-db
+    ports:
+      - '27017:27017'
+    environment:
+      MONGODB_DATABASE: cicero
+      MONGODB_USER: user
+      MONGODB_PASSWORD: password

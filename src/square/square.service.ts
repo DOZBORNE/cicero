@@ -10,6 +10,15 @@ export class SquareService {
     this._square = new Client(config)
   }
 
+  // constructor() {
+  //   this._square = new Client({
+  //     environment:
+  //       process.env.SQUARE_ENVIRONMENT.toUpperCase() === 'PRODUCTION'
+  //         ? Environment.Production
+  //         : Environment.Sandbox,
+  //     accessToken: process.env.SQUARE_ACCESS_TOKEN,
+  //   })
+  // }
   get square(): Client {
     return this._square
   }
