@@ -28,7 +28,7 @@ steps:
   displayName: 'Run a one-line script'
 - script: |
     curl localhost:3308
-    echo localhost:6379
+    curl localhost:6379
     echo $AGENT_SERVICES_REDIS_PORTS_6379
     echo running docker ???
 
