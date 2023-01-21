@@ -12,7 +12,7 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 - script: |
-    docker-compose up- d
+    docker-compose up -d
     echo running docker ???
 
 # - script: |
