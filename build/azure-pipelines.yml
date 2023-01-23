@@ -14,7 +14,7 @@ steps:
     inputs:
       targetType: 'inline'
       script: |
-        docker compose up -f ./compose-services/docker-compose.yml -d
+        docker compose -f ./compose-services/docker-compose.yml up -d
         sleep 30
         echo done sleeping :)
 
