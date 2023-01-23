@@ -27,7 +27,7 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 - script: |
-    curl localhost:3306
+    HEALTHCHECK CMD curl --fail http://localhost:3306 || echo failed curl todb     
     curl localhost:6379
     echo $AGENT_SERVICES_REDIS_PORTS_6379
     echo running docker ???
