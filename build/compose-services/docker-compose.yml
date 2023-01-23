@@ -1,0 +1,26 @@
+version: '3.7'
+services:
+  redis:
+    container_name: adc-auth-redis
+    security_opt:
+      - no-new-privileges:false
+    image: "redis:alpine"
+    expose:
+      - '6379'
+    ports:
+      - '6379:6379'
+
+  db:
+    container_name: adc-auth-db
+    security_opt:
+      - no-new-privileges:false
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: 'db'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
