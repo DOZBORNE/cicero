@@ -16,7 +16,7 @@ steps:
       script: |
         docker compose -f ./build/compose-services/docker-compose.yml up -d
         sleep 30
-        echo done sleeping :)
+        echo done sleeping
 
 #resources:
 #  containers:
